@@ -6,16 +6,16 @@ import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import AnimatedText from "../AnimatedText/AnimatedHeaderText";
 import AnimatedParagraphText from "../AnimatedText/AnimatedParagraphText";
-
+import { motion } from "framer-motion";
 export default function MyBackGround({ setActiveSection }) {
   const headerRef = useRef(null);
 
   return (
-    <section
+    <motion.section
       className={styles.DoingRN}
-      onViewportEnter={() => setActiveSection("Who am I")}
+      onViewportEnter={() => setActiveSection("My background")}
       viewport={{ once: false, amount: 0.5 }}
-      id="about"
+      id="My background"
     >
       <h2 ref={headerRef}>
         <AnimatedText text="My Background" />{" "}
@@ -36,6 +36,6 @@ export default function MyBackGround({ setActiveSection }) {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

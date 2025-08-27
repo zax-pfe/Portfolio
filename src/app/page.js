@@ -10,7 +10,7 @@ import DoingRN from "@/components/DoingRN/DoingRN";
 import MyBackGround from "@/components/MyBackGround/MyBackGround";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState("Who am I");
+  const [activeSection, setActiveSection] = useState("Home");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";

@@ -37,8 +37,9 @@ export default function Description({ setActiveSection }) {
   return (
     <motion.section
       className={styles.description}
-      onViewportEnter={() => setActiveSection("Who am I")}
+      onViewportEnter={() => setActiveSection("Home")}
       viewport={{ once: false, amount: 0.5 }}
+      id="Home"
     >
       <h1 className="text">
         Break appart you txt like a pro, using splittext from gsap. This library

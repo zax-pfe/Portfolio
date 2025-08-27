@@ -14,8 +14,9 @@ export default function DoingRN({ setActiveSection }) {
   return (
     <motion.section
       className={styles.DoingRN}
-      onViewportEnter={() => setActiveSection("Chloe je t'aime")}
-      viewport={{ once: false, amount: 0.5 }}
+      onViewportEnter={() => setActiveSection("What i'm doing")}
+      viewport={{ once: false, amount: 0.7 }}
+      id="What i'm doing"
     >
       <h2 ref={headerRef}>
         <AnimatedText text="What Am i doing Right Now ?" />{" "}

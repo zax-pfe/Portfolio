@@ -9,6 +9,19 @@ export default function NavBarItem({ name, active, hover, setactive }) {
     setHoverStatus(true);
   }
 
+  function actionOnClick() {
+    if (name.toLowerCase() === "home") {
+      // Si c'est la section "home", on remonte en haut
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const section = document.getElementById(name);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setactive(name);
+  }
+
   return (
     <motion.div
       className={styles.NavBarItem}
@@ -20,7 +33,7 @@ export default function NavBarItem({ name, active, hover, setactive }) {
       }
       onMouseOver={() => action()}
       onMouseOut={() => setHoverStatus(false)}
-      onClick={() => setactive(name)}
+      onClick={() => actionOnClick()}
     >
       <motion.div
         className={styles.name}

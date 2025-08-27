@@ -16,25 +16,31 @@ export default function Navbar({ activeSection, setActiveSection }) {
       className={styles.navbar}
     >
       <NavBarItem
-        name="Who am I"
+        name="Home"
         active={activeSection}
         hover={hoverStatus}
         setactive={setActiveSection}
       />
       <NavBarItem
-        name="Chloe je t'aime"
+        name="What i'm doing"
         active={activeSection}
         hover={hoverStatus}
         setactive={setActiveSection}
       />
       <NavBarItem
-        name="very strong"
+        name="My background"
         active={activeSection}
         hover={hoverStatus}
         setactive={setActiveSection}
       />
       <NavBarItem
-        name="you'r mine"
+        name="Projects"
+        active={activeSection}
+        hover={hoverStatus}
+        setactive={setActiveSection}
+      />
+      <NavBarItem
+        name="Contact"
         active={activeSection}
         hover={hoverStatus}
         setactive={setActiveSection}
