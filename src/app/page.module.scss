@@ -1,0 +1,17 @@
+.main {
+  top: -100vh;
+  // width: 100vw;
+  position: relative;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    padding-top: 50vh;
+    gap: 30vh;
+  }
+}
