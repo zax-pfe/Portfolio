@@ -46,24 +46,24 @@ export default function StickyElement({ activeSection, setActiveSection }) {
 
   return (
     <>
-      <div className={styles.styckyelements}>
-        <div className={styles.LeftPanel}>
-          <div className={styles.ballcontainer}>
-            <div ref={screenRef} className={styles.screen} />
-            <Ball />
-          </div>
-          <div ref={panel} className={styles.infopanel}>
-            <p> Axel Puech</p>
-            <p> Créative developper </p>
-          </div>
+      {/* <div className={styles.styckyelements}> */}
+      <div className={styles.LeftPanel}>
+        <div className={styles.ballcontainer}>
+          <div ref={screenRef} className={styles.screen} />
+          <Ball />
         </div>
-        <div ref={navBar}>
-          <Navbar
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-          />
+        <div ref={panel} className={styles.infopanel}>
+          <p> Axel Puech</p>
+          <p> Créative developper </p>
         </div>
       </div>
+      <div ref={navBar}>
+        <Navbar
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
+      </div>
+      {/* </div> */}
     </>
   );
 }

@@ -2,6 +2,7 @@ import styles from "./style.module.scss";
 import { useState } from "react";
 import NavBarItem from "../NavBarItem/NavBarItem";
 import { motion } from "framer-motion";
+
 export default function Navbar({ activeSection, setActiveSection }) {
   const [hoverStatus, setHoverStatus] = useState(false);
 
