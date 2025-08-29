@@ -32,19 +32,36 @@ export default function Model({ activeProject }) {
   });
 
   useEffect(() => {
+    if (!image.current) return;
+
     if (activeProject != null) {
-      image.current.material.uniforms.uTexture.value = textures[activeProject];
-      // plane.current.material.uniforms.uTexture.value = textures[activeMenu]
-      animate(opacity, 1, {
-        duration: 0.2,
-        onUpdate: (progress) =>
-          (image.current.material.uniforms.uOpacity.value = progress),
-      });
-    } else {
+      // Étape 1 : fade out
       animate(opacity, 0, {
         duration: 0.2,
-        onUpdate: (progress) =>
-          (image.current.material.uniforms.uOpacity.value = progress),
+        onUpdate: (progress) => {
+          image.current.material.uniforms.uOpacity.value = progress;
+        },
+      }).finished.then(() => {
+        // Étape 2 : changer la texture une fois invisible
+        image.current.material.uniforms.uTexture.value =
+          textures[activeProject];
+
+        // Étape 3 : fade in
+        animate(opacity, 1, {
+          duration: 0.5,
+          ease: [0.55, 0.085, 0.68, 0.53],
+          onUpdate: (progress) => {
+            image.current.material.uniforms.uOpacity.value = progress;
+          },
+        });
+      });
+    } else {
+      // Aucun projet actif → fade out direct
+      animate(opacity, 0, {
+        duration: 0.2,
+        onUpdate: (progress) => {
+          image.current.material.uniforms.uOpacity.value = progress;
+        },
       });
     }
   }, [activeProject]);

@@ -35,10 +35,10 @@ export default function Index() {
     };
   });
   return (
-    <div className={styles.main}>
+    <div className="z-50">
       <Canvas camera={{ position: [0, 0, 20], fov: 50 }}>
         <OrbitControls enableZoom={false} enablePan={false} />
-        <ambientLight intensity={2} />
+        <ambientLight intensity={1.9} />
         <directionalLight position={[2, 1, 1]} />
         <Ball mouse={mouse} />
         {/* <Cube /> */}
@@ -68,13 +68,14 @@ function Ball({ mouse }) {
       const boost = velocity.get() * -0.001;
       // mesh.current.rotation.y += delta * -0.3 * smoothSpeed.get();
       mesh.current.rotation.y += delta * (baseSpeed + boost);
+      mesh.current.rotation.x = -0.18;
       // mesh.current.rotation.y += rotY.get();
       // mesh.current.rotation.x = rotX.get();
       // mesh.current.rotation.z = rotY.get();
     }
   });
 
-  const texture_1 = useLoader(TextureLoader, "/assets/2.png");
+  const texture_1 = useLoader(TextureLoader, "/assets/ballMaterial.png");
 
   return (
     <mesh ref={mesh}>

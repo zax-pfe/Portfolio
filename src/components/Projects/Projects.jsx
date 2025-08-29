@@ -29,6 +29,7 @@ export default function Projects({ setActiveSection, setActiveProject }) {
         projectId={3}
         setActiveProject={setActiveProject}
       />
+      <div className={styles.lastline} />
     </motion.section>
   );
 }

@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import AnimatedText from "../AnimatedText/AnimatedHeaderText";
 import AnimatedParagraphText from "../AnimatedText/AnimatedParagraphText";
 import { motion } from "framer-motion";
-export default function MyBackGround({ setActiveSection }) {
+export default function MyBackGround({ setActiveSection, isLoading }) {
   const headerRef = useRef(null);
 
   return (
@@ -18,11 +18,12 @@ export default function MyBackGround({ setActiveSection }) {
       id="My background"
     >
       <h2 ref={headerRef}>
-        <AnimatedText text="My Background" />{" "}
+        <AnimatedText text="My Background" isLoading={isLoading} />{" "}
       </h2>
       <div className={styles.textContainer}>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="Developeur python basé a bruxelles, j ai fais une école d ingénieur ou
           j ai suivi une formation qui m a ouvert les portes du métier d
           ingenieur informatique, entre data scientist et develper backend"
@@ -30,6 +31,7 @@ export default function MyBackGround({ setActiveSection }) {
         </div>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="je souhaite rejoindre la formation Expert en Création Numerique
           interactive avec option lead technique Mes premières interfaces
           interactives étaient purement physiques : "

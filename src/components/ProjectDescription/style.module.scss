@@ -1,13 +1,11 @@
-.DoingRN {
-  // border: solid black 1px;
+.ProjectDescription {
   display: flex;
   justify-content: space-around;
-  font-family: "Satoshi-Regular", sans-serif;
+  font-family: "Satoshi-Medium", sans-serif;
 
   h2 {
     flex: 0 0 50%;
     width: 10vw;
-    // border: solid black 1px;
     font-size: 7vh;
     position: sticky;
     top: 20vh; // adjust this to where you want it to stick
@@ -15,7 +13,6 @@
   }
   .textContainer {
     flex: 0 0 50%; /* 0 grow, 0 shrink, 50% basis */
-    // border: solid black 1px;
     display: flex;
     flex-direction: column;
     padding: 20vh 2vw 2vh 2vw;

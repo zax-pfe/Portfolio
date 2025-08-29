@@ -43,9 +43,7 @@ export default function Description({ setActiveSection }) {
     >
       <h1 className="text">
         Break appart you txt like a pro, using splittext from gsap. This library
-        is super usefull to make crazy animation. For now i'm just learning the
-        text split, its usper efficient to splittext and create reveal
-        animations, i love it !
+        is super usefull to make crazy animation.
       </h1>
     </motion.section>
   );

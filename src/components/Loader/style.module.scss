@@ -7,10 +7,10 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: brown;
+  background-color: var(--background-loader);
   // opacity: 0.5;
   // position: absolute;
-  z-index: 5;
+  z-index: 20;
 
   .window {
     height: 20vh;
@@ -21,6 +21,6 @@
   .box {
     height: 20vh;
     width: 10vw;
-    background-color: beige;
+    background-color: var(--background);
   }
 }

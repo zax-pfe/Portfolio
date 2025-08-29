@@ -4,11 +4,11 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import AnimatedText from "../AnimatedText/AnimatedHeaderText";
+import AnimatedHeaderText from "../AnimatedText/AnimatedHeaderText";
 import AnimatedParagraphText from "../AnimatedText/AnimatedParagraphText";
 import { motion } from "framer-motion";
 
-export default function DoingRN({ setActiveSection }) {
+export default function DoingRN({ setActiveSection, isLoading }) {
   const headerRef = useRef(null);
 
   return (
@@ -19,11 +19,15 @@ export default function DoingRN({ setActiveSection }) {
       id="What i'm doing"
     >
       <h2 ref={headerRef}>
-        <AnimatedText text="What Am i doing Right Now ?" />{" "}
+        <AnimatedHeaderText
+          text="What Am i doing Right Now ?"
+          isLoading={isLoading}
+        />{" "}
       </h2>
       <div className={styles.textContainer}>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="Developeur python basé a bruxelles, j ai fais une école d ingénieur ou
           j ai suivi une formation qui m a ouvert les portes du métier d
           ingenieur informatique, entre data scientist et develper backend"
@@ -31,6 +35,7 @@ export default function DoingRN({ setActiveSection }) {
         </div>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="je souhaite rejoindre la formation Expert en Création Numerique
           interactive avec option lead technique Mes premières interfaces
           interactives étaient purement physiques : "
@@ -38,6 +43,7 @@ export default function DoingRN({ setActiveSection }) {
         </div>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="des panneaux de contrôle
           avec boutons, potentiomètres et écrans LCD pilotés par des cartes
           électroniques. Cette possibilité d'interagir directement avec la
@@ -47,6 +53,7 @@ export default function DoingRN({ setActiveSection }) {
         </div>
         <div>
           <AnimatedParagraphText
+            isLoading={isLoading}
             text="des panneaux de contrôle
           avec boutons, potentiomètres et écrans LCD pilotés par des cartes
           électroniques. Cette possibilité d'interagir directement avec la

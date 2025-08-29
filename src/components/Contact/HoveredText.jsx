@@ -1,33 +1,16 @@
-import styles from "./style.module.scss";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import styles from "./style.module.scss";
 
-export default function ProjectItem({
-  projectname,
-  setActiveProject,
-  projectId,
-}) {
+export default function HoveredText({ text, href }) {
   const [hoverStatus, setHoverStatus] = useState(false);
 
-  function mouseHoverAction() {
-    setHoverStatus(true);
-    setActiveProject(projectId);
-  }
-
-  function mouseLeavingAction() {
-    setHoverStatus(false);
-    setActiveProject(null);
-  }
-
-  useEffect(() => {
-    console.log("hoverStatus:", hoverStatus);
-    // console.log("projectname:", projectname);
-  }, [hoverStatus]);
   return (
-    <div
+    <a
       className={styles.projectItem}
-      onMouseOver={() => mouseHoverAction(true)}
-      onMouseOut={() => mouseLeavingAction(false)}
+      onMouseOver={() => setHoverStatus(true)}
+      onMouseOut={() => setHoverStatus(false)}
+      href={href}
     >
       <div className={styles.textContainer}>
         <motion.div
@@ -39,20 +22,22 @@ export default function ProjectItem({
               : { opacity: 1, transition: { duration: 0.5 } }
           }
         >
-          {projectname}
+          {/* axel75puech@gmail.com */}
+          {text}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={
             hoverStatus
-              ? { opacity: 0.7, transition: { duration: 0.5 } }
+              ? { opacity: 1, transition: { duration: 0.5 } }
               : { opacity: 0, transition: { duration: 0.5 } }
           }
           className={styles.full}
         >
-          {projectname}
+          {text}
+          {/* axel75puech@gmail.com */}
         </motion.div>
       </div>
-    </div>
+    </a>
   );
 }

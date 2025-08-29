@@ -14,6 +14,7 @@ import Navbar from "@/components/NavBar/NavBar";
 import Panel from "@/components/Panel/Panel";
 import ProjectW3D from "@/components/ProjectW3D/ProjectW3D";
 import ProjectDescription from "@/components/ProjectDescription/ProjectDescription";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,10 +37,9 @@ export default function Home() {
       document.body.style.overflow = "auto";
       window.scrollTo(0, 0);
       setActiveSection("Home");
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
+      ScrollTrigger.refresh();
     }, 2000);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -49,11 +49,20 @@ export default function Home() {
       <div className={styles.content}>
         <div className={styles.textSectionContainer}>
           <Description setActiveSection={setActiveSection} />
-          <DoingRN setActiveSection={setActiveSection} />
-          <MyBackGround setActiveSection={setActiveSection} />
-          <ProjectDescription setActiveSection={setActiveSection} />
+          <DoingRN setActiveSection={setActiveSection} isLoading={isLoading} />
+          <MyBackGround
+            setActiveSection={setActiveSection}
+            isLoading={isLoading}
+          />
+          <ProjectDescription
+            setActiveSection={setActiveSection}
+            isLoading={isLoading}
+          />
         </div>
         <ProjectW3D setActiveSection={setActiveSection} />
+        <div className={styles.textSectionContainer}>
+          <Contact setActiveSection={setActiveSection} isLoading={isLoading} />
+        </div>
       </div>
       <Navbar
         activeSection={activeSection}

@@ -34,7 +34,10 @@ export default function Panel() {
 
   return (
     <div className={styles.leftPanel}>
-      <div className={styles.ballcontainer}>
+      <div
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={styles.ballcontainer}
+      >
         <div ref={screenRef} className={styles.screen} />
         <Ball />
       </div>

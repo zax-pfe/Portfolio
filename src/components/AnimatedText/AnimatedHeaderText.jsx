@@ -5,7 +5,7 @@ import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function AnimatedHeaderText({ text }) {
+export default function AnimatedHeaderText({ text, isLoading }) {
   const headerRef = useRef(null);
   useGSAP(() => {
     gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -36,10 +36,6 @@ export default function AnimatedHeaderText({ text }) {
         stagger: 0.02,
       });
     });
-    return () => {
-      // timeline.kill();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
+  }, [isLoading]);
   return <div ref={headerRef}>{text}</div>;
 }

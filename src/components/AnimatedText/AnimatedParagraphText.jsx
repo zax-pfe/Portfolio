@@ -5,7 +5,7 @@ import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function AnimatedParagraphText({ text }) {
+export default function AnimatedParagraphText({ text, isLoading }) {
   const headerRef = useRef(null);
   useGSAP(() => {
     gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -35,6 +35,6 @@ export default function AnimatedParagraphText({ text }) {
         stagger: 0.1,
       });
     });
-  }, []);
+  }, [isLoading]);
   return <p ref={headerRef}>{text}</p>;
 }
