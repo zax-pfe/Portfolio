@@ -7,9 +7,6 @@ import Description from "@/components/Desription/Description";
 import Lenis from "lenis";
 import DoingRN from "@/components/DoingRN/DoingRN";
 import MyBackGround from "@/components/MyBackGround/MyBackGround";
-import Projects from "@/components/Projects/Projects";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
 import Navbar from "@/components/NavBar/NavBar";
 import Panel from "@/components/Panel/Panel";
 import ProjectW3D from "@/components/ProjectW3D/ProjectW3D";
@@ -19,7 +16,6 @@ import Contact from "@/components/Contact/Contact";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("Home");
-  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -30,14 +26,12 @@ export default function Home() {
     requestAnimationFrame(raf);
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
-    // ScrollTrigger.refresh();
     setTimeout(() => {
       setIsLoading(false);
       document.body.style.cursor = "default";
       document.body.style.overflow = "auto";
       window.scrollTo(0, 0);
       setActiveSection("Home");
-      ScrollTrigger.refresh();
     }, 2000);
     return () => clearTimeout(timeout);
   }, []);
