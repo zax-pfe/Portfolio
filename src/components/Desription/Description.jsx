@@ -42,8 +42,7 @@ export default function Description({ setActiveSection }) {
       id="Home"
     >
       <h1 className="text">
-        Break appart you txt like a pro, using splittext from gsap. This library
-        is super usefull to make crazy animation.
+        Hello, i'm Axel, i love building creative projects with fancy animations
       </h1>
     </motion.section>
   );

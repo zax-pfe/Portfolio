@@ -10,22 +10,22 @@ export default function Projects({ setActiveSection, setActiveProject }) {
       // id="Projects"
     >
       <ProjectItem
-        projectname={"CHLOE JE TAIME"}
+        projectname={"Project Apsideu"}
         projectId={0}
         setActiveProject={setActiveProject}
       />
       <ProjectItem
-        projectname={"Bonsoir Paris"}
+        projectname={"Chloe Girtens Website"}
         projectId={1}
         setActiveProject={setActiveProject}
       />
       <ProjectItem
-        projectname={"Bienvenue dans"}
+        projectname={"Yomy Care"}
         projectId={2}
         setActiveProject={setActiveProject}
       />
       <ProjectItem
-        projectname={"Mon cul"}
+        projectname={"Contract Copilot : COCO"}
         projectId={3}
         setActiveProject={setActiveProject}
       />
