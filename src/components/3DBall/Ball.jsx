@@ -4,36 +4,73 @@ import { useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import styles from "./style.module.scss";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useMotion } from "@react-three/drei";
 import {
   useScroll,
   useSpring,
   useTransform,
   useMotionValue,
+  useVelocity,
 } from "framer-motion";
 
 export default function Index() {
+  const mouse = {
+    x: useMotionValue(0),
+    y: useMotionValue(0),
+  };
+  const manageMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = clientX / innerWidth;
+    const y = clientY / innerHeight;
+
+    mouse.x.set(x);
+    mouse.y.set(y);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", manageMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", manageMouseMove);
+    };
+  });
   return (
     <div className={styles.main}>
       <Canvas camera={{ position: [0, 0, 20], fov: 50 }}>
         <OrbitControls enableZoom={false} enablePan={false} />
         <ambientLight intensity={2} />
         <directionalLight position={[2, 1, 1]} />
-        <Ball />
+        <Ball mouse={mouse} />
         {/* <Cube /> */}
       </Canvas>
     </div>
   );
 }
 
-function Ball() {
+function Ball({ mouse }) {
+  // const rotationX = useTransform(
+  //   mouse,
+  //   [0, 1],
+  //   [rotation.x - 1, rotation.x + 1]
+  // );
+  const rotX = useTransform(mouse.y, [0, 1], [-0.1, 0.1]);
+  const rotY = useTransform(mouse.x, [0, 1], [0.1, -0.1]);
+
+  const { scrollY } = useScroll();
+  const rawVelocity = useVelocity(scrollY);
+  const velocity = useSpring(rawVelocity, { damping: 40, stiffness: 200 });
+
   const mesh = useRef(null);
 
   useFrame((state, delta) => {
     if (mesh.current) {
-      mesh.current.rotation.y += delta * -0.3;
+      let baseSpeed = -0.3;
+      const boost = velocity.get() * -0.001;
+      // mesh.current.rotation.y += delta * -0.3 * smoothSpeed.get();
+      mesh.current.rotation.y += delta * (baseSpeed + boost);
+      // mesh.current.rotation.y += rotY.get();
       // mesh.current.rotation.x = rotX.get();
-      // mesh.current.rotation.z = rotZ.get();
+      // mesh.current.rotation.z = rotY.get();
     }
   });
 

@@ -6,13 +6,13 @@
   width: 100%;
   border-top: solid 1px black;
   position: relative;
-  z-index: 15;
 
   .textContainer {
     font-size: 5vw;
     position: relative;
-    font-family: "Satoshi-Black", sans-serif;
+    font-family: "Poppins-Black", sans-serif;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   .stroke {

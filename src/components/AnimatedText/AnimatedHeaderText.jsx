@@ -22,7 +22,9 @@ export default function AnimatedHeaderText({ text }) {
         scrollTrigger: {
           trigger: headerRef.current,
           start: "top 80%",
-          toggleActions: "play none none none",
+          onEnter: () => timeline.play(),
+          onEnterBack: () => {},
+          // toggleActions: "restart none play none",
         },
       });
 
@@ -34,6 +36,10 @@ export default function AnimatedHeaderText({ text }) {
         stagger: 0.02,
       });
     });
+    return () => {
+      // timeline.kill();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
   return <div ref={headerRef}>{text}</div>;
 }
