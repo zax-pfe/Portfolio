@@ -15,7 +15,7 @@ export default function Projects({ setActiveSection, setActiveProject }) {
         setActiveProject={setActiveProject}
       />
       <ProjectItem
-        projectname={"Chloe Girtens Website"}
+        projectname={"Chloe Girten s Website"}
         projectId={1}
         setActiveProject={setActiveProject}
       />

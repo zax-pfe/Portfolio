@@ -16,5 +16,18 @@
       gap: 30vh;
       padding-bottom: 35vh;
     }
+
+    .textSectionContainerPhone {
+      display: flex;
+      flex-direction: column;
+      width: 70vw;
+      gap: 30vh;
+      padding-bottom: 35vh;
+
+      h1 {
+        font-family: "Satoshi-Bold", sans-serif;
+        font-size: 10vw;
+      }
+    }
   }
 }

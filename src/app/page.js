@@ -12,20 +12,32 @@ import Panel from "@/components/Panel/Panel";
 import ProjectW3D from "@/components/ProjectW3D/ProjectW3D";
 import ProjectDescription from "@/components/ProjectDescription/ProjectDescription";
 import Contact from "@/components/Contact/Contact";
+import useDevice from "./hooks/useDevice";
+import useBallSize from "./hooks/useBalllSize";
+import PanelPhone from "@/components/Phone/PanelPhone/PanelPhone";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("Home");
+  const device = useDevice();
+  const ballSize = useBallSize(device);
+  console.log("ballsize", ballSize);
 
   useEffect(() => {
+    // Lenis scroll init
     const lenis = new Lenis();
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Hide the loader and scroll to the top while loading
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
+
+    // Setting up the size of the ball rearding the device used
+
     setTimeout(() => {
       setIsLoading(false);
       document.body.style.cursor = "default";
@@ -33,53 +45,74 @@ export default function Home() {
       window.scrollTo(0, 0);
       setActiveSection("Home");
     }, 2000);
+
     return () => clearTimeout(timeout);
   }, []);
 
   return (
     <div className={styles.pageContainer}>
       {isLoading && <Loader />}
-      <Panel />
-      <div className={styles.content}>
-        <div className={styles.textSectionContainer}>
-          <Description setActiveSection={setActiveSection} />
-          <DoingRN setActiveSection={setActiveSection} isLoading={isLoading} />
-          <MyBackGround
+      {device === "phone" ? (
+        <>
+          <PanelPhone ballSize={ballSize} />
+          <div className={styles.content}>
+            <div className={styles.textSectionContainerPhone}>
+              <Description setActiveSection={setActiveSection} />
+              <DoingRN
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+              <MyBackGround
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+              <ProjectDescription
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+            </div>
+            <ProjectW3D setActiveSection={setActiveSection} />
+            <div className={styles.textSectionContainer}>
+              <Contact
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <Panel ballSize={ballSize} />
+          <div className={styles.content}>
+            <div className={styles.textSectionContainer}>
+              <Description setActiveSection={setActiveSection} />
+              <DoingRN
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+              <MyBackGround
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+              <ProjectDescription
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+            </div>
+            <ProjectW3D setActiveSection={setActiveSection} />
+            <div className={styles.textSectionContainer}>
+              <Contact
+                setActiveSection={setActiveSection}
+                isLoading={isLoading}
+              />
+            </div>
+          </div>
+          <Navbar
+            activeSection={activeSection}
             setActiveSection={setActiveSection}
-            isLoading={isLoading}
           />
-          <ProjectDescription
-            setActiveSection={setActiveSection}
-            isLoading={isLoading}
-          />
-        </div>
-        <ProjectW3D setActiveSection={setActiveSection} />
-        <div className={styles.textSectionContainer}>
-          <Contact setActiveSection={setActiveSection} isLoading={isLoading} />
-        </div>
-      </div>
-      <Navbar
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-      />
+        </>
+      )}
     </div>
-    // <main>
-    //   {isLoading && <Loader />}
-    //   <StickyElement
-    //     activeSection={activeSection}
-    //     setActiveSection={setActiveSection}
-    //   />
-    //   <div className={styles.main}>
-    //     <div className={styles.content}>
-    //       <Description setActiveSection={setActiveSection} />
-    //       <DoingRN setActiveSection={setActiveSection} />
-    //       <MyBackGround setActiveSection={setActiveSection} />
-    //     </div>
-    //     <Projects />
-    //   </div>
-    //   {/* <Navbar /> */}
-    //   {/* <Hero /> */}
-    //   {/* <Cube /> */}
-    // </main>
   );
 }

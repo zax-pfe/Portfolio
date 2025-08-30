@@ -5,9 +5,11 @@
 :root {
   --primary: #1e40af;
   --secondary: #9333ea;
-  --background: #cbb4b4;
+  --background: #2f6fb0;
+  /* --background: #cbb4b4; */
   --background-loader: #b39595;
-  --text: #414653;
+  --background-phone: green;
+  --text: #ebe6e6;
 }
 
 body {

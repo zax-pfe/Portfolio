@@ -1,34 +1,12 @@
-.pageContainer {
+// .pageContainer {
+//   display: flex;
+//   position: relative;
+// }
+
+.testElement {
   display: flex;
-  position: relative;
-
-  .navbar {
-    position: fixed;
-    height: 100vh;
-    width: 15vw;
-    top: 0;
-    right: 0;
-    border: solid 1px black;
-    // background-color: red;
-    opacity: 0.5;
-    z-index: 10;
-  }
-  // .leftPanel {
-  //   position: fixed;
-  //   display: flex;
-  //   top: 0;
-  //   height: 100vh;
-  //   width: 15vw;
-  //   opacity: 0.5;
-  //   border: solid 1px black;
-  // }
-
-  .content {
-    flex: 1;
-    height: 150vh;
-    // background-color: rgb(192, 255, 193);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  height: 250vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

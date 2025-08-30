@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import Ball from "@/components/3DBall/Ball";
 
-export default function Panel() {
+export default function Panel({ ballSize }) {
   const panel = useRef(null);
   const screenRef = useRef(null);
   const timeline = gsap.timeline();
@@ -39,7 +39,7 @@ export default function Panel() {
         className={styles.ballcontainer}
       >
         <div ref={screenRef} className={styles.screen} />
-        <Ball />
+        <Ball ballSize={ballSize} />
       </div>
       <div ref={panel} className={styles.infopanel}>
         <p> Axel Puech</p>

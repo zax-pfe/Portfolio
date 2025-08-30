@@ -13,7 +13,7 @@ import {
   useVelocity,
 } from "framer-motion";
 
-export default function Index() {
+export default function Index({ ballSize }) {
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),
@@ -40,21 +40,21 @@ export default function Index() {
         <OrbitControls enableZoom={false} enablePan={false} />
         <ambientLight intensity={1.9} />
         <directionalLight position={[2, 1, 1]} />
-        <Ball mouse={mouse} />
+        <Ball ballSize={ballSize} />
         {/* <Cube /> */}
       </Canvas>
     </div>
   );
 }
 
-function Ball({ mouse }) {
+function Ball({ ballSize }) {
   // const rotationX = useTransform(
   //   mouse,
   //   [0, 1],
   //   [rotation.x - 1, rotation.x + 1]
   // );
-  const rotX = useTransform(mouse.y, [0, 1], [-0.1, 0.1]);
-  const rotY = useTransform(mouse.x, [0, 1], [0.1, -0.1]);
+  // const rotX = useTransform(mouse.y, [0, 1], [-0.1, 0.1]);
+  // const rotY = useTransform(mouse.x, [0, 1], [0.1, -0.1]);
 
   const { scrollY } = useScroll();
   const rawVelocity = useVelocity(scrollY);
@@ -79,26 +79,8 @@ function Ball({ mouse }) {
 
   return (
     <mesh ref={mesh}>
-      <sphereGeometry args={[7, 16, 16]} />
+      <sphereGeometry args={[ballSize, 16, 16]} />
       <meshStandardMaterial map={texture_1} />
     </mesh>
   );
 }
-
-// function Cube() {
-//   const mesh = useRef(null);
-//   useFrame((state, delta) => {
-//     mesh.current.rotation.x += delta * 0.3;
-//     mesh.current.rotation.y += delta * 0.3;
-//     mesh.current.rotation.z += delta * 0.3;
-//   });
-
-//   const texture_1 = useLoader(TextureLoader, "/assets/3D Ball Test.png");
-
-//   return (
-//     <mesh ref={mesh}>
-//       <boxGeometry args={[2.5, 2.5, 2.5]} />
-//       <meshStandardMaterial map={texture_1} />
-//     </mesh>
-//   );
-// }
