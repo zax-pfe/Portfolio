@@ -28,7 +28,7 @@ export default function Contact({ setActiveSection, isLoading }) {
           }
         />
       </h1>
-      <div className={styles.linkContainer}>
+      <h3 className={styles.linkContainer}>
         <HoveredText
           text={"axel75puech@gmail.com"}
           href={"mailto:axel75puech@gmail.com"}
@@ -37,7 +37,7 @@ export default function Contact({ setActiveSection, isLoading }) {
           text={"Linkedin: Axel Puech"}
           href="https://www.linkedin.com/in/axel-puech/"
         />
-      </div>
+      </h3>
     </motion.section>
   );
 }

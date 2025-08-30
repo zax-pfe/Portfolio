@@ -15,6 +15,9 @@ import Contact from "@/components/Contact/Contact";
 import useDevice from "./hooks/useDevice";
 import useBallSize from "./hooks/useBalllSize";
 import PanelPhone from "@/components/Phone/PanelPhone/PanelPhone";
+import InfoSection from "@/components/Phone/InfoSectionPhone/inforSectionPhone";
+
+import { doingrntext, mybackgroundtext, projectstext } from "./data/text";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,33 +56,49 @@ export default function Home() {
     <div className={styles.pageContainer}>
       {isLoading && <Loader />}
       {device === "phone" ? (
-        <>
-          <PanelPhone ballSize={ballSize} />
+        <div className={styles.phoneContainer}>
+          <PanelPhone
+            ballSize={ballSize}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
           <div className={styles.content}>
             <div className={styles.textSectionContainerPhone}>
               <Description setActiveSection={setActiveSection} />
-              <DoingRN
+
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"What i am doing right Now"}
+                id={"What i'm doing"}
+                texts={doingrntext}
               />
-              <MyBackGround
+
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"My Background"}
+                id={"My Background"}
+                texts={mybackgroundtext}
               />
-              <ProjectDescription
+
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"Some Project i have worked on"}
+                id={"Projects"}
+                texts={projectstext}
               />
             </div>
             <ProjectW3D setActiveSection={setActiveSection} />
-            <div className={styles.textSectionContainer}>
+            <div className={styles.textSectionContainerPhone}>
               <Contact
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
               />
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <Panel ballSize={ballSize} />

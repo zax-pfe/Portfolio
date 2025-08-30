@@ -1,11 +1,11 @@
 .burgeritems {
   display: flex;
   flex-direction: column;
-  gap: 5vh;
-  padding-left: 2vw;
+  gap: 3vh;
+  padding-left: 4vw;
 
   .item {
-    font-size: 6vw;
-    font-family: "Satoshi-Bold";
+    font-size: 7vw;
+    font-family: "Satoshi-Medium", sans-serif;
   }
 }

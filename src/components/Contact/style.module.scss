@@ -5,12 +5,7 @@
   flex-direction: column;
   align-items: center;
   // border: solid 1px black;
-  padding-top: 30vh;
-
-  h1 {
-    font-family: "Satoshi-Medium", sans-serif;
-    font-size: 12vh;
-  }
+  padding: 20vh 3vw 0 3vw;
 }
 
 .linkContainer {
@@ -21,9 +16,7 @@
 }
 
 .textContainer {
-  font-size: 5vw;
   position: relative;
-  font-family: "Poppins-Black", sans-serif;
   text-transform: uppercase;
   // letter-spacing: 0.1em;
   cursor: pointer;

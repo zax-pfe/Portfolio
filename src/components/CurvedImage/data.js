@@ -1,18 +1,18 @@
 export const projectsList = [
   {
-    title: "CHLOE JE TAIME",
+    title: "Project Apsideu",
     src: "/assets/project1.png",
   },
   {
-    title: "Bonsoir Paris",
+    title: "Chloe Girten s Website",
     src: "/assets/project2.png",
   },
   {
-    title: "Bienvenue dans",
+    title: "Yomy Care",
     src: "/assets/project3.png",
   },
   {
-    title: "Mon cul",
+    title: "Contract Copilot : COCO",
     src: "/assets/project4.png",
   },
 ];

@@ -14,9 +14,9 @@ export default function BurgerItems() {
       .from(items, {
         opacity: 0,
         x: -30, // Déplacement vertical pour un effet plus dynamique
-        duration: 0.8,
-        stagger: 0.15, // Délai de 0.2s entre chaque élément
-        ease: "power2.out",
+        // duration: 0.5,
+        stagger: 0.08, // Délai de 0.2s entre chaque élément
+        ease: "power4.inOut",
       });
   }, []);
 

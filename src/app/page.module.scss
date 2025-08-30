@@ -1,13 +1,20 @@
 .pageContainer {
-  display: flex;
   position: relative;
+
+  .phoneContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   .content {
     display: flex;
     flex: 1;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 35vh;
+    padding-top: 45vh;
 
     .textSectionContainer {
       display: flex;
@@ -20,13 +27,22 @@
     .textSectionContainerPhone {
       display: flex;
       flex-direction: column;
-      width: 70vw;
-      gap: 30vh;
+      width: 100%;
+      gap: 20vh;
       padding-bottom: 35vh;
-
       h1 {
         font-family: "Satoshi-Bold", sans-serif;
-        font-size: 10vw;
+        font-size: 9vw;
+      }
+
+      h2 {
+        font-size: 8vw;
+        font-family: "Satoshi-Medium", sans-serif;
+      }
+
+      h3 {
+        font-size: 5vw;
+        font-family: "Poppins-Black", sans-serif;
       }
     }
   }
