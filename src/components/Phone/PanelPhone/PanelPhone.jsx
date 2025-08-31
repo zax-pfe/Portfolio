@@ -19,7 +19,11 @@ const burgerVariant = {
   },
 };
 
-export default function PanelPhone({ ballSize }) {
+export default function PanelPhone({
+  ballSize,
+  setActiveSection,
+  activeSection,
+}) {
   const [activeBurger, setActiveBurger] = useState(false);
 
   const panel = useRef(null);
@@ -91,7 +95,11 @@ export default function PanelPhone({ ballSize }) {
             variants={burgerVariant}
             className={styles.menu}
           >
-            <BurgerItems />
+            <BurgerItems
+              setActiveSection={setActiveSection}
+              activeSection={activeSection}
+              setActiveBurger={setActiveBurger}
+            />
           </motion.div>
         )}
       </AnimatePresence>

@@ -16,6 +16,7 @@ import useDevice from "./hooks/useDevice";
 import useBallSize from "./hooks/useBalllSize";
 import PanelPhone from "@/components/Phone/PanelPhone/PanelPhone";
 import InfoSection from "@/components/Phone/InfoSectionPhone/inforSectionPhone";
+import { navlist } from "./data/navlist";
 
 import { doingrntext, mybackgroundtext, projectstext } from "./data/text";
 
@@ -70,7 +71,7 @@ export default function Home() {
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
                 name={"What i am doing right Now"}
-                id={"What i'm doing"}
+                id={navlist[1].name}
                 texts={doingrntext}
               />
 
@@ -78,7 +79,7 @@ export default function Home() {
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
                 name={"My Background"}
-                id={"My Background"}
+                id={navlist[2].name}
                 texts={mybackgroundtext}
               />
 
@@ -86,7 +87,7 @@ export default function Home() {
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
                 name={"Some Project i have worked on"}
-                id={"Projects"}
+                id={navlist[3].name}
                 texts={projectstext}
               />
             </div>

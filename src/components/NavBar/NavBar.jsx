@@ -4,6 +4,7 @@ import NavBarItem from "../NavBarItem/NavBarItem";
 import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { navlist } from "@/app/data/navlist";
 
 export default function Navbar({ activeSection, setActiveSection }) {
   const [hoverStatus, setHoverStatus] = useState(false);
@@ -30,36 +31,15 @@ export default function Navbar({ activeSection, setActiveSection }) {
       className={styles.navbar}
       ref={navbar}
     >
-      <NavBarItem
-        name="Home"
-        active={activeSection}
-        hover={hoverStatus}
-        setactive={setActiveSection}
-      />
-      <NavBarItem
-        name="What i'm doing"
-        active={activeSection}
-        hover={hoverStatus}
-        setactive={setActiveSection}
-      />
-      <NavBarItem
-        name="My background"
-        active={activeSection}
-        hover={hoverStatus}
-        setactive={setActiveSection}
-      />
-      <NavBarItem
-        name="Projects"
-        active={activeSection}
-        hover={hoverStatus}
-        setactive={setActiveSection}
-      />
-      <NavBarItem
-        name="Contact"
-        active={activeSection}
-        hover={hoverStatus}
-        setactive={setActiveSection}
-      />
+      {navlist.map((item, i) => (
+        <NavBarItem
+          name={item.name}
+          key={i}
+          active={activeSection}
+          hover={hoverStatus}
+          setactive={setActiveSection}
+        />
+      ))}
     </motion.div>
   );
 }

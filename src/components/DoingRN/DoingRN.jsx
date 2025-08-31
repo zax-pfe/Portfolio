@@ -9,8 +9,6 @@ import AnimatedParagraphText from "../AnimatedText/AnimatedParagraphText";
 import { motion } from "framer-motion";
 
 export default function DoingRN({ setActiveSection, isLoading }) {
-  const headerRef = useRef(null);
-
   return (
     <motion.section
       className={styles.DoingRN}
@@ -18,7 +16,7 @@ export default function DoingRN({ setActiveSection, isLoading }) {
       viewport={{ once: false, amount: 0.7 }}
       id="What i'm doing"
     >
-      <h2 ref={headerRef}>
+      <h2>
         <AnimatedHeaderText
           text="What Am i doing Right Now ?"
           isLoading={isLoading}
