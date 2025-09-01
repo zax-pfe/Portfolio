@@ -13,14 +13,14 @@
   z-index: 20;
 
   .window {
-    height: 20vh;
-    width: 10vw;
+    height: 200px;
+    width: 180px;
     overflow: hidden;
   }
 
   .box {
-    height: 20vh;
-    width: 10vw;
+    height: 200px;
+    width: 180px;
     background-color: var(--background);
   }
 }

@@ -42,8 +42,10 @@ export default function Description({ setActiveSection }) {
       id="Home"
     >
       <h1 className="text">
-        Hello, i'm Axel, i'm a full stack developper and i love building
-        creative projects with fancy animations
+        Hello, I’m Axel 👋
+        <br />A fullstack developer passionate about design and building smooth,
+        elegant digital experiences. Currently studying at Gobelins, I’m looking
+        for an apprenticeship starting October 2025.
       </h1>
     </motion.section>
   );

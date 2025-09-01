@@ -24,7 +24,7 @@ export default function Contact({ setActiveSection, isLoading }) {
         <AnimatedHeaderText
           isLoading={isLoading}
           text={
-            "Break appart you txt like a pro, using splittext from gsap. This libraryis super usefull to make crazy animation."
+            "Curious to know more about me or my projects? I’d be happy to chat — let’s get in touch!"
           }
         />
       </h1>

@@ -19,9 +19,28 @@
     .textSectionContainer {
       display: flex;
       flex-direction: column;
-      width: 70vw;
+      width: 80vw;
       gap: 30vh;
       padding-bottom: 35vh;
+
+      h1 {
+        font-family: "Satoshi-Medium", sans-serif;
+        font-size: 4.5vw;
+      }
+
+      h2 {
+        font-family: "Satoshi-Regular", sans-serif;
+        font-size: 3.5vw;
+      }
+      h3 {
+        font-size: 3vw;
+        font-family: "Poppins-Black", sans-serif;
+      }
+
+      p {
+        font-family: "Satoshi-Light", sans-serif;
+        font-size: 1.2vw;
+      }
     }
 
     .textSectionContainerPhone {

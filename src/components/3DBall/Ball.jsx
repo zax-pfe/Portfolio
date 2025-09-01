@@ -75,7 +75,7 @@ function Ball({ ballSize }) {
     }
   });
 
-  const texture_1 = useLoader(TextureLoader, "/assets/ballMaterial.png");
+  const texture_1 = useLoader(TextureLoader, "/assets/ballMaterial2.png");
 
   return (
     <mesh ref={mesh}>

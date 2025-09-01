@@ -5,17 +5,15 @@ import React, { useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import Description from "@/components/Desription/Description";
 import Lenis from "lenis";
-import DoingRN from "@/components/DoingRN/DoingRN";
-import MyBackGround from "@/components/MyBackGround/MyBackGround";
 import Navbar from "@/components/NavBar/NavBar";
 import Panel from "@/components/Panel/Panel";
 import ProjectW3D from "@/components/ProjectW3D/ProjectW3D";
-import ProjectDescription from "@/components/ProjectDescription/ProjectDescription";
 import Contact from "@/components/Contact/Contact";
 import useDevice from "./hooks/useDevice";
 import useBallSize from "./hooks/useBalllSize";
 import PanelPhone from "@/components/Phone/PanelPhone/PanelPhone";
-import InfoSection from "@/components/Phone/InfoSectionPhone/inforSectionPhone";
+import InfoSectionPhone from "@/components/Phone/InfoSectionPhone/inforSectionPhone";
+import InfoSection from "@/components/Desktop/InfoSection/InfoSection";
 import { navlist } from "./data/navlist";
 
 import { doingrntext, mybackgroundtext, projectstext } from "./data/text";
@@ -25,7 +23,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("Home");
   const device = useDevice();
   const ballSize = useBallSize(device);
-  console.log("ballsize", ballSize);
+  console.log("active section", activeSection);
 
   useEffect(() => {
     // Lenis scroll init
@@ -67,15 +65,15 @@ export default function Home() {
             <div className={styles.textSectionContainerPhone}>
               <Description setActiveSection={setActiveSection} />
 
-              <InfoSection
+              <InfoSectionPhone
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
-                name={"What i am doing right Now"}
+                name={"What i am doing right now"}
                 id={navlist[1].name}
                 texts={doingrntext}
               />
 
-              <InfoSection
+              <InfoSectionPhone
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
                 name={"My Background"}
@@ -83,7 +81,7 @@ export default function Home() {
                 texts={mybackgroundtext}
               />
 
-              <InfoSection
+              <InfoSectionPhone
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
                 name={"Some Project i have worked on"}
@@ -106,17 +104,27 @@ export default function Home() {
           <div className={styles.content}>
             <div className={styles.textSectionContainer}>
               <Description setActiveSection={setActiveSection} />
-              <DoingRN
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"What i am doing right now"}
+                id={navlist[1].name}
+                texts={doingrntext}
               />
-              <MyBackGround
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"My Background"}
+                id={navlist[2].name}
+                texts={mybackgroundtext}
               />
-              <ProjectDescription
+
+              <InfoSection
                 setActiveSection={setActiveSection}
                 isLoading={isLoading}
+                name={"Some Project i have worked on"}
+                id={navlist[3].name}
+                texts={projectstext}
               />
             </div>
             <ProjectW3D setActiveSection={setActiveSection} />

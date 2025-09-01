@@ -1,14 +1,11 @@
 "use client";
 import styles from "./style.module.scss";
 import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import SplitText from "gsap/SplitText";
-import { useGSAP } from "@gsap/react";
 import AnimatedHeaderText from "@/components/AnimatedText/AnimatedHeaderText";
 import AnimatedParagraphText from "@/components/AnimatedText/AnimatedParagraphText";
 import { motion } from "framer-motion";
 
-export default function InfoSectionPhone({
+export default function InfoSection({
   setActiveSection,
   isLoading,
   name,
@@ -19,7 +16,7 @@ export default function InfoSectionPhone({
 
   return (
     <motion.section
-      className={styles.DoingRN}
+      className={styles.infoSection}
       onViewportEnter={() => setActiveSection(id)}
       viewport={{ once: false, amount: 0.7 }}
       id={id}
